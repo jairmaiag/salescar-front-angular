@@ -1,0 +1,73 @@
+<div class="card">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>Carros</h4>
+        </div>
+        <div class="float-right">
+            <button type="button" class="btn btn-primary" [routerLink]="['/carros']" title="Retorna para tela anterior">
+      Voltar
+    </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">{{titulo}}</h6>
+        <form class="needs-validation" novalidate [formGroup]="form">
+            <div class="form-row">
+                <div class="col-sm-4">
+                    <label for="nome">Placa</label>
+                    <input type="text" class="form-control" mask="SSS-0000" maxlength="8" (blur)="toUpperCase($event)" formControlName="placa" id="nome" [ngClass]="{'is-invalid': enviado && temErros('placa')}" placeholder="Placa do carro" autofocus>
+                    <div class="invalid-feedback">
+                        Placa é obrigatório e deve ser no formato XXX1234.
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label for="renavam">Renavam</label>
+                    <input type="text" class="form-control" mask="000000000" maxlength="9" formControlName="renavam" id="renavam" [ngClass]="{'is-invalid': enviado && temErros('renavam')}" placeholder="Número do renavam">
+                    <div class="invalid-feedback">
+                        Renavam é obrigatório e deve ter no mínimo 9 numeros.
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label for="valorvenda">Valor de venda</label>
+                    <input type="number" class="form-control" formControlName="valorvenda" id="valorvenda" placeholder="Valor de venda">
+                </div>
+            </div>
+            <div class="form-row mt-2">
+                <div class="col-sm-12">
+                    <label for="modelo">Modelo</label>
+                    <select class="form-control" id="modelo" formControlName="modelo" [compareWith]="compararCampos" [ngClass]="{'is-invalid': enviado && temErros('modelo')}">
+                  <option *ngFor="let item of modelos$ | async" [ngValue]="item">{{item.nome}}</option>
+                </select>
+                    <div class="invalid-feedback">
+                        Modelo é obrigatório.
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mt-2">
+                <div class="col-sm-5">
+                    <label for="opcionalDisponivel">Opcionais Disponiveis</label>
+                    <select multiple class="form-control" id="opcionalDisponivel" formControlName="opcionaisDisponiveis" [compareWith]="compararCampos" style="height: 150px;">
+                    <option *ngFor="let item of opcionais" [ngValue]="item">{{item.nome}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 align-self-cente">
+                    <label>Ação</label><br>
+                    <button type="submit" class="btn btn-outline-primary" role="button" (click)="adicionarOuRemoverTodosOpcionais('+')" title="Adicionar todos"> >></button><br>
+                    <button type="button" class="btn btn-outline-primary" role="button" (click)="aciconarOuremoverOpcionaisSelecionados('opcionaisDisponiveis','+')" title="Adicionar selecionado"> > </button><br>
+                    <button type="button" class="btn btn-outline-primary" role="button" (click)="aciconarOuremoverOpcionaisSelecionados('opcionaisSeleciondos','-')" title="Remover selecionado"> < </button><br>
+                    <button type="button" class="btn btn-outline-primary" role="button" (click)="adicionarOuRemoverTodosOpcionais('-')" title="Remover todos"> << </button>
+                </div>
+                <div class="col-sm-5">
+                    <label for="opcional">Opcionais do carro</label>
+                    <select multiple class="form-control" id="opcional" formControlName="opcionaisSeleciondos" [compareWith]="compararCampos" style="height: 150px;">
+                    <option *ngFor="let item of opcionaisCarro" [ngValue]="item">{{item.nome}}</option>
+                  </select>
+                </div>
+            </div>
+            <div class="mt-2 ">
+                <button type="submit " class="btn btn-primary mr-2" (click)=" salvar() "> Salvar</button>
+                <button type="button " class="btn btn-default " (click)="cancelar() "> Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

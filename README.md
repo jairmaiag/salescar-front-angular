@@ -1,27 +1,51 @@
-# SalescarFrontAngular
+# SalesCar
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+Projeto para cadastro de veículos para venda (frontend).
 
-## Development server
+## Índice
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Iniciando](#iniciando)
+  - [Requisitos](#requisitos)
+  - [Executando](#executando)
+- [Dúvidas](#dúvidas)
 
-## Code scaffolding
+## Iniciando
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Segue as instruções de utilização da aplicação.
 
-## Build
+[Voltar ao Índice](#salescar)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Requisitos
+Ter os programas abaixo já instalados e rodando:
+ 
+1. Ter o **Sales Backend** rodando com o banco.
+2. Ter o **Node JS** versão **14.15.4** ou superior.
+3. Ter o **NPM** versão **7.3.6** ou superior.
 
-## Running unit tests
+[Voltar ao Índice](#salescar)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Executando
 
-## Running end-to-end tests
+Primeiro acesse, via terminal de comandos, a pasta onde o projeto foi baixado.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Segundo exeute o comando npm, abaixo para baixar as dependências.
 
-## Further help
+`npm install`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Este passo pode demorar um pouco.
+
+Terceiro execute o comando abaixo:
+
+`npm start`
+
+Abrir o browser com o caminho [http://localhost:4200](http://localhost:4200)
+
+Utilizar a barra de menu para fazer os cadastros de carros e de modelos.
+
+[Voltar ao Índice](#salescar)
+
+### Dúvidas
+
+Em caso de dúvidas entre em contato com [jairmaiag@gmail.com](jairmaiag@gmail.com)
+
+[Voltar ao Índice](#salescar)
